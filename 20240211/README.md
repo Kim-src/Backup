@@ -1,6 +1,5 @@
-** 나만의 깃허브(GitHub) 블로그 10분만에 만들기(Jekyll 기본 페이지)
-
-# ✅ 싱크홀(공동) 자동 분석 AI 모델 VisualCavity 개발 시작
+# 나만의 깃허브(GitHub) 블로그 10분만에 만들기(Jekyll 기본 페이지)
+## ✅ 싱크홀(공동) 자동 분석 AI 모델 VisualCavity 개발 시작
 
 <br>
 
