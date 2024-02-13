@@ -82,9 +82,9 @@
 > - 그리고 Bundler는 Ruby 개발에 필요한 각종 라이브러리의 버전 관리 도구입니다.
 > - 이들을 Spring으로 비유하면 Bundler는 pom.xml이고 Jekyll은 project 자체입니다.
 > - 아래는 Ruby Development Kit를 다운로드 할 수 있는 사이트 링크입니다.
-> - 참고로 버전 호환성을 위해 Ruby Devkit의 3.1.3-1 (x86) 버전을 추천합니다.
-> - [Ruby Development Kit 다운로드 링크 (3.1.3-1 (x86) 설치)](https://rubyinstaller.org/downloads/archives/)
-<p align="center"><img src="https://github.com/Kim-src/Images/assets/150884526/c1ecf348-5d93-4780-bdec-bff734aabb88" width="500px"></p>
+> - 참고로 버전 호환성을 위해 Ruby Devkit의 3.1.3-1 (x64) 버전을 추천합니다.
+> - [Ruby Development Kit 다운로드 링크 (3.1.3-1 (x64) 설치)](https://rubyinstaller.org/downloads/archives/)
+<p align="center"><img src="https://github.com/Kim-src/Images/assets/150884526/a527c0d2-a6cf-4c48-adc0-e14efdf9a852" width="500px"></p>
 
 ### 📌 Git Bash로 Jekyll 설치
 > - Jekyll은 Git Bash에서 설치 가능합니다.
