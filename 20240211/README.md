@@ -88,10 +88,10 @@
 
 ### 📌 Git Bash로 Jekyll 설치
 > - Jekyll은 Git Bash에서 설치 가능합니다.
-> - GIt Bash 실행 후 로컬 저장소로 이동한 뒤 Jekyll을 설치하면 됩니다.
+> - GIt Bash 실행 직후 Ruby 버전 확인 후 Jekyll을 설치하면 됩니다.
 > - 작성자의 Git Bash 입력 내용은 아래와 같습니다.
 >   ```bash
->   $ cd /c/Users/ceoba/Dropbox/'2. PJT'/Kim-src.github.io
+>   $ ruby -v
 >   $ gem install jekyll
 >   $ jekyll -v
 >   ```
