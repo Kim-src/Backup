@@ -2,7 +2,7 @@
 title: 인터넷 작동 원리 (How does the internet work)
 date: 2024-03-16 21:00:00 +09:00
 categories: [Fundamental, Computer Science]
-tags: [Fundamental, Computer Science, Internet, How does the internet work?]
+tags: [Fundamental, Computer Science, Internet, How does the internet work]
 ---
 
 <!-- 2024-02-28 글 작성 시작; 2099-01-01 페이지 호출 필요 -->
