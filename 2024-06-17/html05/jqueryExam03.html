@@ -1,0 +1,149 @@
+<!-- input 창, button 창 실습 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /* main section */
+        .main {
+            width: 500px;
+            height: 200px;
+            border: 1px solid black;
+            /* 4개: top right bottom left 순서 */
+            /* 2개: top + bottom, right + left 순서*/
+            /* 3개: top, right + left, bottom */
+            /* 1개: 전 방향 */
+            padding-top: 10px;
+            padding-left: 15px;
+        }
+        
+        /* 동일한 스타일을 부여하고 싶을 경우 '클래스명 쉼표 클래스명' 또는 '클래스명클래스명'으로 작성 */
+        /* 클래스명의 경우 띄어쓰기 */
+        .target, .solv {
+            margin-bottom: 10px;
+        }
+
+        .txt {
+            height: 30px;
+            width: 200px;
+            border-radius: 5px;
+        }
+
+        /* 띄어쓰기 의미 : solv 클래스 하위에 있는 txt 클래스 */
+        /* 띄어쓰기 사이에 등호를 넣는 것도 가능 : 동일한 의미(더 명확하게 구분됨) */
+        /* 즉, solv 밑의 txt 클래스만 영향을 받음 */
+        .solv > .txt {
+            width: 410px;
+        }
+
+        .btn-area {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        button {
+            width: 70px;
+            height: 30px;
+            border: none;
+            /* 브라우저의 폰트 비율에 맞출 때 rem 용이함 */
+            font-size: 1.2rem;
+        }
+
+        /* button type의 plus id*/
+        /* 종속 개념이 아니라 button 중에 id가 무엇인 것 개념 */
+        button#plus {
+            background-color: rgb(73, 127, 202);
+            color: white;
+            border-radius: 5px;
+        }
+
+        /* button type의 minus id*/
+        /* 종속 개념이 아니라 button 중에 id가 무엇인 것 개념 */
+        button#minus {
+            background-color: rgb(202, 88, 73);
+            color: white;
+            border-radius: 5px;
+        }
+
+        /* type이 number인 것에 스피너(화살표 UI) 제거하는 방법*/
+        /* 파이어폭스 버전 number 타입 화살표 제거 */
+        input[type='number'] {
+            -moz-appearance: textfield;
+        }
+
+        /* :: = 뭐? */
+        /* :: 뒤에 공백이 있으면 적용 안됨 */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <!-- 단순 덧셈/뺄셈 기능이 있는 html 코드 작성 -->
+    <section class="main">
+        <div class="target">
+            <!-- 실제 데이터 타입이 number인 것은 아님 -->
+            <!-- 데이터 타입이 기본적으로 문자이기 때문에 형 변환을 해줘야 됨 -->
+            <!-- Number() 함수로 감싸주면 됨 -->
+            <input type="number" id="num01" class="txt">
+            <input type="number" id="num02" class="txt">
+        </div>
+        <div class="solv">
+            <input type="text" id="result" class="txt" readonly>
+        </div>
+        <div class="btn-area">
+            <button type="button" id="plus">더하기</button>
+            <button type="button" id="minus">빼기</button>
+        </div>
+    </section>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<script>
+
+    function initEvent(){
+        const plusBtn = document.querySelector('#plus');
+
+        // 버튼에 이벤트 부여
+        /* JavaScript 형태(형변환 필요) */
+        plusBtn.addEventListener('click', function(e) {
+            const num1 = document.querySelector('#num01');
+            const num2 = document.querySelector('#num02');
+            const result = document.querySelector('#result');
+            
+            // num1, num2만 가져오면 객체
+            // .value를 해야 값을 가져옴
+            // Number()로 형변환 해줘야 숫자로 인식함
+            result.value = Number(num1.value) + Number(num2.value);
+        });
+
+        /* jQuery 형태(형변환 필요 없음) */
+        // 바인드가 있고 클립이 있지만 jQuery3부터는 on을 사용하라고 함
+        $('#minus').on('click', function(e) {
+            const num1 = $('#num01');
+            const num2 = $('#num02');
+            const result = $('#result');
+            // parameter가 있으면 setter 없으면 getter
+            result.val(num1.val() - num2.val());
+        });
+    }
+
+    /* 자동 실행 함수 */
+    // 순수 js 것
+    // 안에 있는 것이 콜백 함수
+    (function() {
+
+    })();
+
+    // jQuery 것
+    $(document).ready(function(){
+        initEvent();
+    });
+</script>
+</html>

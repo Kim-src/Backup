@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+</body>
+<script>
+    // 문자열 내에 변수 삽입
+    let name = "JavaMan";
+    let skill = "JavaScript";
+    
+    document.write(`${name}이 Java가 아닌 ${skill}을 학습한다.`);
+
+    document.write("<br>");
+
+    // 문자열 내에 표현식(수학 공식) 삽입
+    let price = 10000;
+    let tax = 0.1;
+
+    document.write(`대한민국에서 국세를 ${price}원 납부했으면, 지방세는 ${price * tax}원 납부해야 됩니다.`);
+
+    document.write("<br>");
+
+    // 문자열 내에 문장 삽입
+    // 콘솔 출력 시 줄바꿈 발생
+    // 뷰포트 출력 시 줄바꿈 미발생
+    console.log(`아버지가
+    방에
+    들어가신다.`);
+
+    let sentence = `아버지가
+    방에
+    들어가신다.`;
+
+    console.log(sentence);
+</script>
+</html>

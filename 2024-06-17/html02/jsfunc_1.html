@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+</body>
+<script>
+    /* 최초 변수 선언 */
+    const a = 10;
+    let b = 20;
+    var c = 30;
+
+    /* 변수에 할당된 값 출력 */
+    document.write(a);
+    document.write("<br>");
+    document.write(b);
+    document.write("<br>");
+    document.write(c);
+    document.write("<br>");
+
+    /* 변수에 할당된 값 수정 */
+    // a 변수에 할당된 값 수정 불가(const 키워드 변수 선언으로 인한 값 재할당 불가)
+    // 그럼에도 수정하려고 하면 동기적인 코드 처리로 인한 JavaScript 코드 실행 중지
+    // a = 1000;
+    b = 1000;
+    c = 1000;
+
+    /* 수정된 값 출력 */
+    document.write(a);
+    document.write("<br>");
+    document.write(b);
+    document.write("<br>");
+    document.write(c);
+    document.write("<br>");
+</script>
+</html>

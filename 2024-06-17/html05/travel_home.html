@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+            flex-direction: row;
+
+            /* 모든 콘텐츠 가운데 정렬 */
+            justify-content: center;
+            /* 배경 이미지 링크 */
+            background-image: url("https://github.com/Kim-src/Images/assets/150884526/8ec4b36a-c188-41ed-a12b-94e216a11e35");
+            /* 배경 이미지 크기 조정 */
+            background-size: cover;
+            /* 배경 이미지 위치 조정 */
+            background-position: center;
+        }
+
+        .login-normal {
+            width: 500px;
+            height: 350px;
+        }
+
+        .login-title {
+            padding: 40px 0;
+            
+            text-align: center;
+            color: #f0f0f0;
+            font-size: 40px;
+            font-weight: 800;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .text-field {
+            width: 300px;
+            height: 50px;
+            font-size: 15px;
+            color: #141414;
+
+            margin: 3px 83px;
+            padding-left: 20px;
+
+            border: 1px solid #f0f0f0;
+            border-radius: 30px;
+        }
+
+        .login-login {
+            text-align: right;
+            margin-top: 10px;
+            margin-right: 80px;
+        }
+
+        .button {
+            width: 100px;
+            height: 40px;
+
+            font-size: 1.2rem;
+            color: #f0f0f0;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+            border: 0;
+            cursor: pointer;
+            background-color: transparent;
+        }
+
+        /* .login-image {
+            position: absolute;
+            left: 580px;
+            top: -10px;
+
+            width: 400px;
+            height: 400px;
+
+            background-image: url("https://github.com/Kim-src/Images/assets/150884526/78ec8aa5-1571-4641-ad32-49a55bc213f3");
+            background-size: cover;
+            background-position: center;
+        } */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="login-normal">
+            <div class="login-title">Travel Korea</div>
+            <div class="login-information">
+                <div class="input-id">
+                    <input type="text" id="userId" class="text-field" placeholder="Enter your Email">
+                </div>
+                <div class="input-password">
+                    <input type="password" id="userPassword" class="text-field" placeholder="Enter your Password" autocomplete="off">
+                </div>
+            </div>
+            <div class="login-login">
+                <button type="submit" id="loginBtn" class="button" onclick="login();">Login</button>
+            </div>
+            <!-- <div class="login-image"></div> -->
+        </section>
+        
+        <!-- <section class="login-help">
+            <div class="find-id"></div>
+            <div class="find-password"></div>
+            <div class="login-join"></div>
+        </section> -->
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<script>
+    // 입력 안내 문구 출력을 위한 함수를 생성하였습니다.
+    function validate() {
+        const userId = $('#userId');
+        const userPassword = $('#userPassword');
+
+        // 공백을 제외한 userId의 길이가 0일 경우 입력 안내 문구를 출력하였습니다.
+        if($.trim(userId.val()).length === 0) {
+            alert('Enter your Email Address.');
+            return false;
+        }
+
+        if($.trim(userPassword.val()).length === 0) {
+            alert('Enter your Password.');
+            return false;
+        }
+
+        return true;
+    };
+
+    // 로그인 성공 문구 출력을 위한 함수를 생성하였습니다.
+    // validate 값이 true로 return될 경우 기능이 실행되도록 설정하였습니다.
+    function login() {
+        if(validate()) {
+            alert('Welcome!');
+        }
+    };
+</script>
+</html>

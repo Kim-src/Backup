@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+</body>
+<script>
+    /* 콜백 지옥 예시 */
+    // doFirst 함수는 첫 번째 비동기 작업을 수행합니다.
+    // 작업 완료 시 doSecond 함수를 콜백으로 호출합니다.
+    doFirst(function (result1) {
+        // doSecond 함수는 result1을 인수로 받습니다.
+        // 그리고 두 번째 비동기 작업을 수행합니다.
+        // 작업 완료 시 doThird 함수를 콜백으로 호출합니다.
+        doSecond(result1, function (result2) {
+            doThird(result2, function (result3) {
+                // result 3을 최종 결과로 반환합니다.
+                console.log('Final Result = ', result3);
+            });
+        });
+    });
+
+
+    /* Promise 사용 */
+    // doSomething 메서드를 실행합니다.
+    doSomething()
+        //
+        .then(result1 => {
+            return doFirst(result1);
+        })
+        .then(result2 => {
+            return doSecond(result2);
+        })
+        .then(result3 => {
+            console.log('Final Result', result3);
+        })
+        .catch(error => {
+            console.error('Error', error);
+        });
+
+
+    /* async, await 키워드 사용 */
+
+</script>
+</html>

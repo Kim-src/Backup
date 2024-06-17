@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body {
+            margin: 0px;
+            padding: 0px;
+            overflow: hidden;
+        }
+
+        .container{
+            display: flex;
+            height: 100vh;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            background-color: #a1a1a1;
+        }
+
+        .login-form {
+            border: 1px solid white;
+            width: 500px;
+            height: 350px;
+            border-radius: 10px;
+            background-color: white;
+            /* box-shadow 파라미터 순서 : x좌표, y좌표, 클수록 커지는 것, 퍼지는 범위, 색상 */
+            box-shadow: 1px 1px 12px #5a5a5a,
+                        1px 1px 110px 5px #ffffff;
+        }
+
+        .text-title {
+            text-align: center;
+            font-size: 30px;
+            font-weight: 700;
+            margin-top: 20px;
+            /* 폰트 스타일 부여 */
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        .login-content ul {
+            /* none = 안붙이겠다 */
+            list-style-type: none;
+            margin-top: 15%;
+        }
+
+        .login-content ul li {
+            margin-bottom: 20px;
+        }
+
+        .login-content label {
+            /* block, inline, inline-block, none */
+            /*
+                block : 
+                inline : 
+                inline-block : 
+                none : 
+            */
+            display: inline-block;
+            width: 80px;
+            text-align: right;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .text-field {
+            width: 300px;
+            height: 35px;
+            margin-left: 5px;
+            border: none;
+            border-bottom: 2px solid black;
+            outline: none;
+            font-size: 18px;
+        }
+
+        .btn-area {
+            text-align: center;
+            margin-top: 35px;
+        }
+
+        .btn {
+            width: 90px;
+            height: 40px;
+            border-radius: 5px;
+            border: none;
+            background-color: skyblue;
+
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <section class="container">
+        <div class="login-form">
+            <div class="text-title">
+                Login
+            </div>
+            <div class="login-content">
+                <!-- ul = Unordered List -->
+                <ul>
+                    <!-- li = List -->
+                    <li>
+                        <label for="userId">아이디:</label>
+                        <input  type="text"
+                                id="userId"
+                                class="text-field"
+                                placeholder="아이디를 입력하십시오.">
+                    </li>
+                    <li>
+                        <label for="userpassword">패스워드:</label>
+                        <input  type="password"
+                                id="userPassword"
+                                class="text-field"
+                                placeholder="패스워드를 입력하십시오."
+                                autocomplete="off">
+                    </li>
+                </ul>
+            </div>
+            <div class="btn-area">
+                <button type="button" id="loginBtn" class="btn" onclick="login();">로그인</button>
+            </div>
+        </div>
+    </section>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<script>
+
+    function validated() {
+        const userId = $('#userId');
+        const userPassword = $('#userPassword');
+
+        // ===와 ==
+        // ==의 경우 숫자 1과 문자 1을 값으로만 비교함
+        // 숫자 1과 문자 1을 ===로 비교하면 false (타입까지 비교함)
+        if($.trim(userId.val()).length === 0) {
+            alert('아이디를 입력하십시오.');
+            // return과 return false는 다른 것임
+            // return은 끝내는 것
+            // early return = return flase ?
+            return false;
+        }
+
+        if($.trim(userPassword.val()).length === 0) {
+            alert('패스워드를 입력하십시오.');
+            return false;
+        }
+
+        return true;
+    }
+
+    // 익명 함수 정의
+    // const login = function login () {}
+    // }
+    const login = () => {
+
+        if(validated()) {
+            alert('로그인 성공!');
+        }
+
+    }
+
+</script>
+</html>

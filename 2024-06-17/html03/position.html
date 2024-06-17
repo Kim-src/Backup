@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red {
+            position: static; /* 좌표를 달아놨기에 움직여지지 않음*/
+            background-color: red;
+            width: 100px;
+            height: 100px;
+            left: 100px; /* 좌측부터 얼마나 멀어졌냐 */
+            top: 50px; /* 꼭대기부터 얼마나 멀어졌냐 */
+            z-index: 4; /* static에서는 z-index가 안되는듯? ㅅ*/
+        }
+
+        .green {
+            position: relative; /* 내 이전에 있던 것 기준 좌표값에 따라서 움직여짐 */
+            background-color: green;
+            width: 100px;
+            height: 100px;
+            left: 100px;
+            top: 70px;
+            z-index: 3;
+        }
+
+        .blue {
+            position: absolute; /* document 0,0 기준독립적으로 움직여짐, 좌표를 부여하지 않으면 static과 동일함, layer를 겹치고 싶을 때 사용 */
+            background-color: blue;
+            width: 100px;
+            height: 100px;
+            left: 110px;
+            top: 110px;
+        }  
+
+        .yellow {
+            position: fixed; /* document 0,0 기준독립적으로 움직여짐, 좌표를 부여하지 않으면 static과 동일함, layer를 겹치고 싶을 때 사용 */
+            background-color: yellow;
+            width: 100px;
+            height: 100px;
+            left: 100px;
+            top: 50px;
+        }       
+
+        .container {
+            height: 1200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="red">1</div>
+        <div class="green">2</div>
+        <div class="blue">3</div>
+        <div class="yellow">4</div>
+    </div>
+</body>
+</html>

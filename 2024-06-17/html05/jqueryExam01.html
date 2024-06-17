@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="myName" name="myName">
+</body>
+<!-- 선택자 = 태그 -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<script>
+
+    // html = js 객체
+    const input1 = document.getElementById('myName');
+    const input2 = document.querySelector('#myName');
+
+    console.log(input1);
+    console.log(input2);
+
+    // 선택자로 넣어도 jQuery obj
+    const jqueryInput = $(input1);
+    // 위 코드와 동일한 코드
+    // const jqueryInput = jQuery(input1);
+    // id로 넣어도 jQuery obj
+    const jqueryInput2 = $('#myName');
+    // 위 코드와 동일한 코드
+    // const jqueryInput2 = jQuery('#myName');
+    
+    console.log(jqueryInput)
+    console.log(jqueryInput2)
+
+</script>
+</html>

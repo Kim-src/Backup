@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="area1"></div>
+    <div class="area2"></div>
+</body>
+<!-- jQuery 라이브러리 이용 -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<script>
+    /* 기본 JavaScript를 이용한 스타일 부여 방식 */
+    // querySelector는 css 선택자를 이용하는 메서드
+    // html 문서에서 첫 번째로 일치하는 css 요소를 찾아 해당 요소를 반환
+    const basicBox = document.querySelector('.area1');
+
+    // basicBox 속성이 존재할 경우 스타일 적용
+    // querySelector 메서드 = DOM 메서드
+    // 요소가 존재하지 않을 경우 null 반환
+    if(basicBox) {
+        // style 객체의 cssText 속성에 css 속성 및 값 부여
+        // JavaScript에서는 하이픈(-)이 아닌 카멜 케이스로 코드 작성
+        basicBox.style.cssText = 'width: 100px; height: 100px';
+        // style 객체의 backgroundColor 속성에 값 부여
+        // JavaScript에서는 하이픈(-)이 아닌 카멜 케이스로 코드 작성
+        basicBox.style.backgroundColor = 'red';
+    }
+
+    /* jQuery를 이용한 스타일 부여 방식 */
+    // jQuery($) 라이브러리를 사용하여 area2 class에 접근
+    const queryBox = $('.area2');
+
+    // queryBox 속성이 존재할 경우 스타일 적용
+    // jQuery = 배열 유사 객체
+    // 요소가 존재하지 않더라도 배열 유사 객체 반환
+    // 즉, 항상 true 반환
+    if(queryBox.length > 0) {
+        // jQuery에서는 중괄호 내에 css 속성 및 값 부여
+        queryBox.css({width: '200px', height: '200px'});
+        // jQuery에서는 css와 마찬가지로 하이픈을 사용하여 코드 작성
+        queryBox.css('background-color', 'orange');
+    }
+</script>
+</html>

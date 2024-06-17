@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="userId" name="userId">
+    <input type="text" id="password" name="password"><br>
+    <button type="button" id="sendBtn">전송</button>
+</body>
+<script>
+
+    // onclick이 아닌 script로 버튼 생성
+    function send(event) {
+        // 더블클릭 방지용 메서드
+        event.preventDefault();
+        // getElementById = 옛날것
+        let userId = document.getElementById('userId').value;
+        // querySelector = 요즘것(아이디만이 아닌 선택자(뭔소리 ?))
+        let password = document.querySelector('#password').value;
+
+        alert('아이디 ' + userId + ', 패스워드' + password);
+
+    }
+
+    // html 객체를 가져옴
+    const sendBtn = document.querySelector('#sendBtn');
+
+    sendBtn.addEventListener('click', send);
+
+</script>
+</html>

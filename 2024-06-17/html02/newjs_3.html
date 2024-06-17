@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+</body>
+<script>
+    /* Promise 객체 사용 예시 */
+    // url을 인자로 받는 fetchData1 함수를 정의하였습니다.
+    // fetchData1 함수는 전달받은 url을 가지고 서버에 데이터를 요청합니다.
+    function fetchData1(url) {
+        // url을 인자로 받는 fetch 함수를 사용하였습니다.
+        // fetch 함수는 JavaScript의 내장 함수입니다.
+        // fetch 함수는 url을 인자로 받아 서버로 데이터를 요청하는 역할을 합니다.
+        fetch(url)
+            // 서버로부터 응답을 받으면 실행될 함수를 정의하였습니다.
+            // 화살표 함수 내용은 response를 인자로 받았을 때 실행될 내용입니다.
+            .then(response => {
+                // 데이터를 응답받지 못했으면 아래의 에러를 발생시킵니다.
+                if(!response.ok) {
+                    throw new Error('Network response was not ok.');
+                }
+                // 데이터를 응답 받았으면 응답을 JSON 형태로 변환합니다.
+                return response.json();
+            })
+        // 서버로부터 data를 받으면 실행될 내용을 정의하였습니다.
+        .then(data => {
+            // data를 콘솔에 출력합니다.
+            console.log(data);
+        })
+        // 에러 처리를 정의하였습니다.
+        .catch(error => {
+            // error 내용을 콘솔에 출력하였습니다.
+            console.error('Error: ', error);
+        })
+    }
+
+    // 예시로 필자의 블로그 url을 입력하였습니다.
+    // 아래 메서드는 fetchData1 함수를 호출하고 url을 전달합니다.
+    // 해당 url의 블로그로부터 응답을 받으면 응답 내용이 JSON 형태로 변환됩니다.
+    // 해당 url의 블로그로부터 데이터를 받으면 콘솔에 출력됩니다.
+    // 해당 url의 블로그 데이터 교환 과정에서 에러가 발생되면 콜솔에 출력됩니다. 
+    fetchData1('https://kim-src.github.io/');
+
+
+    /* async/await 키워드 사용 예시 */
+    // url을 인자로 받는 fetchData 함수를 정의하였습니다.
+    // fetchData 함수는 전달받은 url을 가지고 서버에 데이터를 요청합니다.
+    async function fetchData2(url) {
+        // try 블록에 데이터 요청에 대한 응답 및 결과 관련 로직을 정의하였습니다.
+        try {
+            // await 키워드를 이용하여 fetch 함수가 url을 인자로 받을 때까지 대기합니다.
+            const response = await fetch(url);
+            // 데이터를 응답받지 못했으면 아래의 에러를 발생시킵니다.
+            if(!response.ok) {
+                throw new Error('Network response was not ok.');
+            }
+            // 데이터를 응답 받았으면 응답을 JSON 형태로 변환합니다.
+            const data = await response.json();
+            // 서버로부터 data를 받으면 콘솔에 출력합니다.
+            console.log(data);
+        // catch 블록에 에러 발생 로직을 정의하였습니다.
+        } catch(error) {
+            // error 내용을 콘솔에 출력하였습니다.
+            console.error('Error: ', error);
+        }
+    }
+
+    // 예시로 필자의 블로그 url을 입력하였습니다.
+    // 아래 메서드는 fetchData1 함수를 호출하고 url을 전달합니다.
+    // 해당 url의 블로그로부터 응답을 받으면 응답 내용이 JSON 형태로 변환됩니다.
+    // 해당 url의 블로그로부터 데이터를 받으면 콘솔에 출력됩니다.
+    // 해당 url의 블로그 데이터 교환 과정에서 에러가 발생되면 콜솔에 출력됩니다. 
+    fetchData2('https://kim-src.github.io/');
+</script>
+</html>

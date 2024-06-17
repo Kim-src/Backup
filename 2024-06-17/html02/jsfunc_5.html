@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+</body>
+<script>
+    /* global scope */
+    let a = 10;
+
+    for(i = 0; i < 1; i++) {
+        /* block scope */
+        let b = 20;
+
+        if(true) {
+            /* function scope */
+            let c = 30;
+            // function scope에 선언된 변수 c이기 때문에 이곳에서 활용 가능합니다.
+            console.log(c);
+        }
+
+        // block scope에 선언된 변수 b이기 때문에 이곳에서 활용 가능합니다.
+        console.log(b);
+        // function scope에 선언된 변수 c이기 때문에 함수 내에서만 활용 가능합니다.
+        // console.log(c);
+    }
+
+    // global scope에 선언된 변수 a는 어느 곳에서나 활용 가능합니다.
+    console.log(a);
+    // block scope에 선언된 변수 b는 블록 내부에서만 활용 가능합니다.
+    // console.log(b);
+    // function scope에 선언된 변수 c는 함수 내에서만 활용 가능합니다.
+    // console.log(c);
+</script>
+</html>

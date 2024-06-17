@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="area1"></div>
+    <div id="area2"></div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<script>
+
+    const div1 = document.querySelector('#area1');
+    const div2 = $('#area2');
+
+    // cssText = css 여러 개 줄 때
+    div1.style.cssText = 'width: 100px; height: 100px';
+    // jQuery에서 여러 개 줄 때 = {} 중괄호 처리
+    div2.css({width: '200px', height: '200px'});
+
+    // 색상 변경
+    // js에서는 하이픈이 아닌 카멜 케이스로 작성
+    div1.style.backgroundColor = 'red';
+    // css에서는 하이픈으로 작성
+    div2.css('background-color', 'orange')
+
+
+</script>
+</html>

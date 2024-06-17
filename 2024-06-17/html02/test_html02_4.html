@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .resultButton {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="introduce">
+        <!-- 이름 입력을 위한 input 태그 -->
+        <label for="nameType">
+            이름 : 
+            <input type="text" id="nameType" name="nameType" value="" placeholder="이름을 입력하세요.">
+        </label>
+
+        <br>
+        
+        <!-- 나이 입력을 위한 input 태그 -->
+        <label for="ageType">
+            나이 : 
+            <input type="number" id="ageType" name="ageType" value="" placeholder="나이를 입력하세요.">
+        </label>
+
+        <br>
+        
+        <!-- 취미 선택을 위한 input 태그 -->
+        <label for="movie">
+            <input type="checkbox" id="movie" name="hobby" value="movie">
+            영화감상
+        </label>
+        
+        <!-- 취미 선택을 위한 input 태그 -->
+        <label for="walk">
+            <input type="checkbox" id="walk" name="hobby" value="walk">
+            산책
+        </label>
+        
+        <!-- 취미 선택을 위한 input 태그 -->
+        <label for="book">
+            <input type="checkbox" id="book" name="hobby" value="book">
+            독서
+        </label>
+
+        <br>
+
+        <!-- 성별 선택을 위한 select, option 태그 -->
+        <label for="gender">
+            성별 : 
+            <select id="gender" name="gender">
+                <option value="man">남자</option>
+                <option value="woman">여자</option>
+            </select>
+        </label>
+
+        <div class="resultButton">
+            <!-- form 데이터 전송용 저장 버튼 -->
+            <button type="submit">저장</button>
+            <!-- form 데이터 전체 삭제용 취소 버튼 -->
+            <input type="reset" value="취소">
+        </div>
+    </div>
+</body>
+</html>

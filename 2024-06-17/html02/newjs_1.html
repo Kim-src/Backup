@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+</body>
+<script>
+    /* Promise 객체 생성 예시 */
+    // 테스트용 변수 정의
+    let a = 20;
+    let b = 10;
+
+    // Promise 객체 생성
+    const firstPromise = new Promise((resolve, reject) => {
+        // 비동기 로직에 따른 조건문 정의
+        if(a > b) {
+            // 조건이 참일 경우 resolve 함수 호출
+            // 값을 반환해야 되기 때문에 document, console은 비적정
+            resolve('Success!');
+        } else {
+            // 조건이 거짓일 경우 reject 함수 호출
+            reject('Failure!');
+        }
+    });
+
+
+    /* 비동기 로직 생성 */
+    // 비동기 로직 실습을 위한 fetchData 함수 생성
+    function fetchData() {
+        // fetchData 메서드를 실행할 경우 새로운 Promise 객체 반환
+        // 반환되는 Promise 객체는 초기 상태(pending)
+        return new Promise((resolve, reject) => {
+            // 타이머 지정
+            setTimeout(() => {
+                // Promise 객체에 data를 key, value 형태로 저장
+                const data = {name : 'Kim', age : 30};
+                // 작업에 성공하면 저장된 data 반환
+                resolve(data);
+            // 1초 후에 데이터 반환
+            }, 1000);
+        });
+    }
+
+    document.write("<br>")
+
+    // fetchData 메서드 실행
+    fetchData()
+        // then 콜백은 성공적인 결과 수용
+        .then(data => {
+            console.log('Information = ', data);
+        })
+        // catch 콜백 함수는 에러 수용
+        .catch(error => {
+            console.log('Error = ', error);
+        })
+        // 성공 여부와 상관없이 실행을 마치면 반환할 내용
+        .finally(() => {
+            console.log('Fetch attempt finished.');
+        })
+</script>
+</html>

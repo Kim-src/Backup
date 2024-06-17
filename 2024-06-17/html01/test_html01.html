@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 태그 자체에 스타일을 적용하였습니다. */
+        div {
+            /* font-size 속성에 30px 값을 부여하였습니다. */
+            font-size: 30px;
+        }
+
+        /* id 요소에 스타일을 적용하였습니다. */
+        #text1 {
+            /* color 속성에 red 값을 부여하였습니다. */
+            color: red;
+            background-color: skyblue;
+        }
+
+        /* class 요소에 스타일을 적용하였습니다. */
+        .pTag {
+            color: yellow;
+            background-color: black;
+        }
+
+        /* name 요소에 스타일을 적용하였습니다. */
+        ul[name='ulTag'] {
+            color: greenyellow;
+            background-color: purple;
+        }
+
+        /* class 요소 2개에 스타일을 적용하였습니다. */
+        .olTag, .dlTag {
+            color: skyblue;
+            background-color: navy;
+        }
+    </style>
+</head>
+<body>
+    텍스트입니다.
+    텍스트입니다.
+    텍스트입니다.
+
+    <div id="text1" class="divTag" name="divTag">
+        텍스트입니다.
+        텍스트입니다.
+        텍스트입니다.
+    </div>
+
+    <p id="text2" class="pTag" name="pTag">
+        텍스트입니다.
+        텍스트입니다.
+        텍스트입니다.
+    </p>
+
+    <ul id="text3" class="ulTag" name="ulTag">
+        <li>텍스트입니다.</li>
+        <li>텍스트입니다.</li>
+        <li>텍스트입니다.</li>
+    </ul>
+
+    <ol id="text4" class="olTag" name="olTag">
+        <li>텍스트입니다.</li>
+        <li>텍스트입니다.</li>
+        <li>텍스트입니다.</li>
+    </ol>
+
+    <!-- 줄바꿈 태그 br (break) -->
+    <br>
+
+    <dl id="text5" class="dlTag" name="dlTag">
+        <dt>Text</dt>
+        <dd>텍스트입니다.</dd>
+        <dd>텍스트입니다.</dd>
+        <dd>텍스트입니다.</dd>
+    </dl>
+</body>
+</html>

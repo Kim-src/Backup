@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>claculator</title>
+</head>
+<body>
+</body>
+<script type="module">
+    // 이름으로 내보낸 개별 함수 가져오기
+    import {add, substract} from './clacOperator.js';
+
+    // 객체로 내보낸 모듈 가져오기
+    import calculateOperator from './clacOperator.js';
+
+    // 가져온 모듈을 활용하여 수학 계산
+    console.log(add(10, 20));
+    console.log(substract(10, 20));
+    console.log(calculateOperator.multiple(10, 20));
+    console.log(calculateOperator.divide(10, 20));
+    document.write(add(10, 20));
+</script>
+</html>

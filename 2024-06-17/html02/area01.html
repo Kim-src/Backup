@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+            style은 선택자를 통해서 디자인을 부여함
+            선택자에는 html tag, id, name, className 등이 있음
+            html tag : div, h1, span (html tag에는 일반적인 태그명)
+            id : #idName, #melon, #apple (id에는 단어 앞에 #을 붙여서 구분함)
+            name : div[name='영역']
+            (앞에 tag 이름, 대괄호 안에 name 지정)
+            (tag마다 같은 name을 가지게 될 수 있기 때문에)
+            (사용하기 보기 좋지 않기 때문에 name으로 style 지정할 일은 거의 없음)
+            className : tag, id, name이 아니니 구분되어야 됨
+            (그래서 단어 앞에 점(.)을 붙임)
+            (.pink, .blue, .green)
+        */
+
+        #dv1, #dv3 {
+            background-color : blue;
+            color : white;
+            font-size : 30px;
+        }
+
+        #dv2, #dv4 {
+            background-color : green;
+            color : white;
+            font-size : 30px;
+        }
+
+    </style>
+</head>
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+
+    <br>
+
+    <div id="dv1">1</div>
+    <div id="dv2">2</div>
+    <div id="dv3">3</div>
+    <div id="dv4">4</div>
+
+    <br>
+
+    <!-- id 및 name은 속성이 달라서 단어가 동일하여도 괜찮음 -->
+    <div id="dv1" name="dv1">1</div>
+    <div id="dv2" name="dv2">2</div>
+    <div id="dv3" name="dv3">3</div>
+    <div id="dv4" name="dv4">4</div>
+</body>
+</html>

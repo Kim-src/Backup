@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        - var가 없어지고 let, const가 생김
+        - const가 되면 final 처리가 되고 값을 변경할 수 없음(값이 변하면 안되는 것)
+        - let
+    */
+
+    let arr = []; // 빈 배열 만들기
+    let arr02 = [1,2,3]; // 값과 크기가 있는 배열
+
+    arr = [4,5,6]; // Java는 안되지만 스크립트는 됨
+
+    // 인덱스를 이용한 값 추가는 휴먼 에러를 유발함
+    arr.push(10);
+
+    console.log(arr); // 변수를 정의할 때 배열이 비어있는 상태였음
+    console.log(arr02); // 변수를 정의할 때 배열을 초기화시킨 상태였음
+
+    // script용 loop
+
+    // 값 또는 key를 기준으로 꺼낸다(콘솔에 출력)
+    // Java의 콜론 역할을 of가 함
+    for(let value of arr) {
+        console.log(value);
+    }
+
+    console.log("--------------------------------")
+
+    // index 출력 가능
+    for(let value in arr) {
+        console.log(value);
+    }
+
+    console.log("--------------------------------")
+
+    // 기본적인 루프를 이용한 출력
+    for(let i = 0; i < arr.length; i++) {
+        console.log(arr[i]);
+    }
+
+    // arr.join(delimiter);
+    console.log(arr.join(', '));
+    
+</script>
+</html>

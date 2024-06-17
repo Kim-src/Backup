@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+</body>
+<script>
+    // 1. 동기적 수행으로 인한 첫 번째 문장 출력
+    console.log("첫 번째 문장 <br>");
+
+    // 2. 동기적 수행으로 인한 setTimeout 타이머 시작
+    // 4. 비동기적 수행으로 인한 두 번째 문장 5초 후 출력
+    setTimeout(() => {
+        console.log("두 번째 문장 <br>");
+    }, 5000);
+    
+    // 3. 동기적 수행으로 인한 세 번째 문장 출력
+    console.log("세 번째 문장 <br>");
+</script>
+</html>

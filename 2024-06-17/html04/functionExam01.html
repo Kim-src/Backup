@@ -1,0 +1,60 @@
+<!-- js 함수 학습 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="click2()">버튼 누르기</button>
+</body>
+<script>
+    // 변수에 담기는 함수 테스트 = 익명 함수 테스트
+    // js에서는 let 또는 const로 변수 선언
+
+    // 변경 가능한 값
+    let count = 0;
+
+    // 일반 함수
+    function clickNomarl() {
+        console.log(count++);
+    };
+
+    // const = 불변값(변경되면 안되는 값) = public final 역할
+    // function이긴한데 직접 선언한 것이 아니라 변수에 담김
+    const clicks = function() {
+        console.log(count++);
+    };
+
+    // 람다식 또는 화살표 함수
+    // 익명 함수를 간편하게 표현한 것(예쁘고 간편)
+    const click2 = () => {
+        console.log(count++);
+    };
+
+    // 콜백 함수(비동기 프로그램)
+    // 네트워크 프로그램은 대부분 병렬성이 있음
+    // Java의 병렬 프로그램과 비슷한 개념임
+    function sync() {
+        
+        setInterval(
+            function() {
+            console.log("안뇽1");
+        }, 3000);
+
+        setInterval(
+            function() {
+            console.log("안뇽2");
+        }, 1000);
+    
+        console.log("하이");
+    };
+
+    // 프로그램은 순차적으로 실행되기 때문에 sync가 먼저, '하이'가 나중에 출력되어야 됨
+    // 그런데 sync 함수가 3초 뒤 실행되기 때문에 '하이'가 먼저 출력됨
+    sync();
+
+</script>
+</html>

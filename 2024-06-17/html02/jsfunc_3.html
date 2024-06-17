@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+</body>
+<script>
+    /* 부모 클래스 생성 */
+    // class 키워드를 사용하여 Phone 클래스 생성
+    class Phone {
+        // constructor 키워드를 사용하여 클래스의 속성 생성
+        constructor(model, company) {
+            this.model = model;
+            this.company = company;
+        }
+
+        // 클래스의 메서드 정의
+        phoneInfo() {
+            document.write(`이 스마트폰은 ${this.model}이고 ${this.company}에서 제작하였습니다.`);
+        }
+    }
+
+    // 변수 및 인스턴스 생성(실질적인 값 할당)
+    let myPhone = new Phone("S23 Ultra", "Samsung");
+    myPhone.phoneInfo();
+
+    document.write("<br>");
+
+    /* 자식 클래스 생성 */
+    // class 키워드를 사용하여 User 클래스 생성
+    // extends 키워드를 사용하여 Phone 클래스 상속
+    class User extends Phone {
+        // constructor 키워드를 사용하여 클래스의 속성 생성
+        constructor(model, company, user) {
+            // super 키워드를 이용하여 부모 클래스 생성자 호출 및 초기화
+            super(model, company);
+            this.user = user;
+        }
+
+        // Phone 클래스의 phoneInfo 메서드 오버라이딩
+        phoneInfo() {
+            document.write(`이 스마트폰은 ${this.model}이고 ${this.company}에서 제작하였으며 사용자는 ${this.user}입니다.`);
+        }
+        // Phone 클래스의 
+    }
+
+    // 변수 및 인스턴스 생성
+    let myPhoneUser = new User("S23 Ultra", "Samsung", "Kim");
+    myPhoneUser.phoneInfo();
+</script>
+</html>

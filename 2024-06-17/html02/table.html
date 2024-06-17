@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 500px;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        td, th {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <!-- tr = table row -->
+            <tr>
+                <!-- th = table header -->
+                <th>이름</th>
+                <th>나이</th>
+                <th>성별</th>
+            </tr>
+        </thead>
+        <!-- 실제 데이터가 들어가는 영역 -->
+        <tbody>
+            <tr>
+                <!-- td = table data -->
+                <td>홍길동</td>
+                <td>450</td>
+                <td>남자</td>
+            </tr>
+            <tr>
+                <td>김영희</td>
+                <td>40</td>
+                <td>여자</td>
+            </tr>
+            <tr>
+                <td>고길동</td>
+                <td>45</td>
+                <td>남자</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+<!-- JavaScript 태그 -->
+<script>
+    // 주석은 java와 같다.
+    // 데이터의 타입이 없다.
+    /*
+        자바(앞에 데이터 타입을 놓음)
+        int a = 10;
+        String b = "안뇽";
+        a = "하이" (에러 발생)
+
+        자바스크립트(앞에 데이터 타입이 없음, 오른쪽에 있는 데이터를 기준으로 변수가 정의됨)
+        문자와 문자열의 차이가 없어서 작은 따옴표 큰 따옴표 차이가 없음
+        var b = 10;
+        var str = "안뇽" 또는 var str = '안뇽';
+        // js는 값에 의하여 데이터가 변하기 때문에 형변환 개념도 없음
+        // 그래서 아무 값이나 삽입 가능함
+        b = '하이' (정상 작동)
+    */
+
+</script>
+</html>

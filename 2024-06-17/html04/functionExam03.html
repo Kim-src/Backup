@@ -1,0 +1,42 @@
+<!-- js 함수 학습 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+</body>
+<script>
+    
+    let arr = [1,2,30,4,5];
+
+    // loop는 단순하게 배열을 순회하는 기능
+    // 거기에 callback 기능을 넣어서 반복하고 싶을 때 무엇을 하고 싶은지 함수를 받을 수 있음
+    function loop(callback) {
+        for(let i = 0; i < arr.length; i++) {
+            // console.log('a');
+            callback(i, arr[i]);
+        }
+    }
+        
+    // closer : 바깥에 있는 함수를 내부에서 사용하고,
+    // 내부에서 사용한 함수의 결과가 유지되는 것
+    // closer : 내부에 있는 함수가 외부에 있는 함수를 사용하고 유지되는 것
+    function result() {
+        let sum = 0;
+        loop(
+            function(i, obj) {
+                sum += obj; 
+        }
+    );
+
+    console.log(sum);
+    }
+
+    result();
+
+</script>
+</html>

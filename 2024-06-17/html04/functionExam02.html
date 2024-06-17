@@ -1,0 +1,50 @@
+<!-- js 함수 학습 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- onclick으로 버튼 버튼 생성 -->
+    <!-- 속성으로 이벤트 부여 -->
+    <button onclick="eventStart()">시작</button>
+    <button onclick="eventEnd()">종료</button>
+</body>
+<script>
+    
+    let task1;
+    let task2;
+
+    // 비동기
+    // 동시에 여러가지 일을 실행할 수 있는 것
+
+    // callback 함수
+    // 호출된 함수가 실행된 후, 호출되는 함수
+    // 보통 비동기 처리 된 함수에서의 결과를 실행해줄 때 자주 사용됨
+    // 또는 특정 함수의 실행 결과를 수행하기 위해서도 사용됨
+    // 보통 콜백 함수는 익명 함수를 사용하여 처리함
+
+    // 함수 실행 시작
+    function eventStart() {
+        
+        // 비동기
+        task1 = setInterval(function() {
+            console.log("인사1");
+        }, 1000);
+
+        task2 = setInterval(function() {
+            console.log("인사2");
+        }, 2000);
+    }
+
+    // 함수 실행 종료
+    function eventEnd() {
+        clearInterval(task1);
+        clearInterval(task2);
+    }
+
+</script>
+</html>

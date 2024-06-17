@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            /* flex-direction: column; */
+            flex-wrap: wrap;
+            background-color: beige;
+            height: 100vh; /* vh = vertical height : 화면에서 가용 height에 대한 비율*/
+        }
+
+        .item {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        /* 짝수 */
+        /* 알록달록하게 만들 수 있는 방법 */
+        .item:nth-child(even) {
+            background-color: red;
+        }
+
+        /* 홀수 */
+        .item:nth-child(odd) {
+            background-color: gold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- div.item.item${}*5 -->
+        <div class="item item1"></div>
+        <div class="item item2"></div>
+        <div class="item item3"></div>
+        <div class="item item4"></div>
+        <div class="item item5"></div>
+    </div>
+</body>
+</html>

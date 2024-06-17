@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="userId" name="userId">
+    <!-- 엔터 입력을 위해 onkeyup 사용 -->
+    <input type="text" id="password" name="password" onkeyup="enterEvent(event)"><br>
+    <button type="button" id="sendBtn">전송</button>
+</body>
+<script>
+
+    function enterEvent(e) {
+        event.preventDefault();
+        // keyCode == 13이면 Enter
+        if(e.keyCode == 13) {
+            send(e);
+        }
+    }
+
+    function send(event) {
+        event.preventDefault();
+        let userId = document.getElementById('userId').value;
+        let password = document.querySelector('#password').value;
+        alert('아이디 ' + userId + ', 패스워드' + password);
+    }
+
+    const sendBtn = document.querySelector('#sendBtn');
+    sendBtn.addEventListener('click', send);
+
+</script>
+</html>
