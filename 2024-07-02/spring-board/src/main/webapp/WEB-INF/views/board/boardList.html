@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	body {
+		margin: 0;
+		padding: 0;
+	}
+	
+	.container {
+		margin-top: 5%;
+		text-align: center;
+	}
+	
+	.main {
+		height: 600px;
+		width: 1200px;
+		margin: 0 auto;
+	}
+	
+	.table {
+		width: 100%;
+		border-top: 1px solid black;
+		border-bottom: 1px solid black;
+		border-collapse: collapse;
+	}
+	
+	.table th, td {
+		border-top: 1px solid black;
+		border-bottom: 1px solid black;
+	}
+	
+	.table th {
+		height: 40px;
+		color: white;
+		background-color: #c9c9c9;
+		font-size: 1.2rem;
+	}
+	
+	.table td {
+		height: 40px;
+	}
+	
+	.btn-area {
+		text-align: center;
+		margin-bottom: 10px;
+	}
+	
+	.pagination {
+		width: 1200px;
+		text-align: center;
+		margin: 0 auto;
+	}
+</style>
+</head>
+<body>
+	<section class="container">
+		<div class="main">
+			<div class="btn-area">
+				<button onclick="goWrite();">작성하기</button>
+			</div>
+			<table class="table">
+				<colgroup>
+					<col width="10%">
+					<col width="40%">
+					<col width="10%">
+					<col width="10%">
+					<col width="15%">
+					<col width="15%">
+				</colgroup>
+				<thead>
+					<tr>
+						<th>글번호</th>
+						<th>글제목</th>
+						<th>작성자</th>
+						<th>조회수</th>
+						<th>등록일</th>
+						<th>수정일</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>글번호</td>
+						<td>글제목</td>
+						<td>작성자</td>
+						<td>조회수</td>
+						<td>등록일</td>
+						<td>수정일</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="pagination">
+			1 2 3
+		</div>
+	</section>
+</body>
+</html>
