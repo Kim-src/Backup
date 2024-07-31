@@ -1,0 +1,161 @@
+@charset "UTF-8";
+
+/* 테이블 규격 스타일 */
+.total-size {
+	width: 266.05mm;
+	height: 163.00mm;
+}
+
+.record-1 {
+	width: 25mm;
+	height: 8mm;
+}
+
+.record-2-1 {
+	width: 22.86mm;
+	height: 6.95mm;
+	font-size: 10.5pt;
+	letter-spacing: -0.03em;
+}
+
+.record-2-2 {
+	width: 82.88mm;
+	height: 6.95mm;
+	font-size: 10.5pt;
+	letter-spacing: -0.03em;
+}
+
+.record-2-3 {
+	width: 8.32mm;
+	height: 27.81mm;
+	font-size: 10.5pt;
+	background-color: #f2f2f2;
+	letter-spacing: -0.03em;
+}
+
+.record-2-4 {
+	width: 8.32mm;
+	height: 6.95mm;
+	font-size: 10.5pt;
+	letter-spacing: -0.03em;
+}
+
+.record-2-5 {
+	width: 46.97mm;
+	height: 6.95mm;
+	font-size: 10.5pt;
+	letter-spacing: -0.03em;
+}
+
+.record-2-6 {
+	width: 8.56mm;
+	height: 27.81mm;
+	font-size: 10.5pt;
+	writing-mode: vertical-lr;
+	background-color: #f2f2f2;
+}
+
+.gap-2-6 {
+	margin: 4px 0;
+}
+
+.record-2-7 {
+	width: 30.46mm;
+	height: 6.95mm;
+	font-size: 10.5pt;
+	letter-spacing: -0.03em;
+}
+
+.record-2-8 {
+	width: 12.35mm;
+	height: 6.95mm;
+	font-size: 10.5pt;
+	letter-spacing: -0.03em;
+}
+
+.record-2-9 {
+	width: 8.86mm;
+	height: 13.91mm;
+	font-size: 10.5pt;
+	background-color: #f2f2f2;
+	letter-spacing: -0.03em;
+}
+
+.gap-2-9 {
+	display: block;
+	margin: 5px 0;
+}
+
+.record-2-10 {
+	width: 8.86mm;
+	height: 6.95mm;
+	font-size: 10.5pt;
+	letter-spacing: -0.03em;
+}
+
+.record-2-11 {
+	width: 27.62mm;
+	height: 6.95mm;
+	font-size: 10.5pt;
+	letter-spacing: -0.03em;
+}
+
+.record-3-1 {
+	width: 169.34mm;
+	height: 7.34mm;
+}
+
+.record-3-2 {
+	 width: 96.72mm;
+	 height: 7.34mm;
+}
+
+.record-4-1 {
+	width: 169.34mm;
+	height: 57.08mm;
+}
+
+.record-4-2 {
+	width: 48.36mm;
+	height: 28.54mm;
+}
+
+.record-5-1 {
+	width: 131.28mm;
+	height: 10.46mm;
+}
+
+.record-5-2 {
+	width: 85.12mm;
+	height: 5.23mm;
+}
+
+.record-5-3 {
+	width: 49.66mm;
+	height: 10.46mm;
+}
+
+.record-5-4 {
+	width: 42.56mm;
+	height: 5.23mm;
+}
+
+.record-6-1 {
+	width: 131.28mm;
+	height: 15mm;
+}
+
+.record-6-2 {
+	width: 42.56mm;
+	height: 48mm;
+}
+
+.record-6-3 {
+	width: 49.66mm;
+	height: 48mm;
+}
+
+.record-6-4 {
+	width: 131.28mm;
+	height: 33mm;
+}
