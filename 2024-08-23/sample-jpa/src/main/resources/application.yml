@@ -1,0 +1,40 @@
+server:
+  port: 9090
+
+  spring:
+    main:
+      allow-bean-definition-overriding: true
+
+      datasource:
+        driver-class-name: org.mariadb.jdbc.Driver
+        url: jdbc:mariadb://localhost:13306/boot_web
+        username: root
+        password: 1234
+        type: com.zaxxer.hikari.HikariDataSource
+        hikari:
+          connection-timeout: 60000
+          maximum-pool-size: 50
+          minimum-idle: 20
+          idle-timeout: 10000
+          data-source-properties:
+            cachePrepStmts: true
+            perpStmtCacheSize: 250
+            perpStmtCacheSqlLimit: 2048
+            useServerPrepStmts: true
+
+      jpa:
+        database-platform: org.hibernate.dialect.MariaDB103Dialect
+        database: mysql
+        generate-ddl: false
+        open-in-view: false
+        show-sql: true
+        properties:
+          hibernate:
+            generate_statistics: false
+            format_sql: true
+            use_sql_comments: false
+            cache:
+              use_second_level_cache: false
+              use_query_cache: false
+              region:
+                factory_class: org.hibernate.cache.ehcache.EhCacheRegionFactory
