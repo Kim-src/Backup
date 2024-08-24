@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/main_layout}">
+
+<!-- config.html의 css 블럭에 적용될 내용 -->
+<th:block layout:fragment="css">
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .tit-txt {
+            text-align: center;
+            margin-top: 3%;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            backface-visibility: visible;
+            box-shadow: 0 3px 5px -1px rgb(0, 0, 0, .2),
+            0 5px 8px 0 rgb(0, 0, 0, .2),
+            0 1px 14px 0 rgb(0, 0, 0, .2);
+            width: 90%;
+            height: 200px;
+            margin-bottom: 10px;
+            background-color: #fdfdfd;
+            margin-top: 5px;
+        }
+
+        .img-content {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .img-content img {
+            width: 100%;
+            height: 130px;
+            object-fit: fill;
+        }
+
+        .img-tit {
+            text-align: center;
+            height: 50px;
+            line-height: 50px;
+        }
+
+        .row {
+            box-shadow: 0 3px 5px -1px rgb(0, 0, 0, .2),
+            0 1px 8px 0 rgb(0, 0, 0, .2),
+            0 1px 14px 0 rgb(0, 0, 0, .2);
+            border-radius: 5px;
+            height: 650px;
+        }
+
+        .display-row {
+            text-align: right;
+            background-color: #ffffff;
+            box-shadow: 0 3px 5px -1px rgb(0, 0, 0, .2),
+            0 5px 8px 0 rgb(0, 0, 0, .2),
+            0 1px 14px 0 rgb(0, 0, 0, .2);
+            margin-bottom: 40px;
+            height: 50px;
+            line-height: 50px;
+            padding-right: 5px;
+        }
+
+        .page-area {
+            margin-top: 20px;
+        }
+
+        /* 박스 스타일 설정 */
+        .display-area {
+            display: grid;
+            /* 공간 2개를 양분하도록 설정 */
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .chk-img {
+            margin-top: 3px;
+            margin-left: 2px;
+            width: 18px;
+            height: 18px;
+        }
+
+        .card-exit {
+            text-align: right;
+        }
+    </style>
+</th:block>
+<div layout:fragment="content">
+    <main class="container">
+        <div class="tit-txt">
+            <h1>Gallery List</h1>
+        </div>
+        <div class="display-row">
+            <button type="button" class="btn btn-primary" onclick="showModal('add');">등록</button>
+            <button type="button" class="btn btn-success" onclick="updateGallery('update');">수정</button>
+            <button type="button" class="btn btn-danger" onclick="deleteGallery('update');">삭제</button>
+        </div>
+        <div class="row">
+            <div class="col-3" th:each="data : ${galleryData.galleryList}">
+                <div class="card">
+                    <ul class="img-content">
+                        <li>
+                            <div class="display-area">
+                                <div class="card-chk">
+                                    <input type="checkbox" th:id="|${data.seq}_chk|"
+                                           name="img_chk" class="chk-img" th:value="${data.seq}">
+                                </div>
+                                <div class="card-exit">
+                                    <i class="fa-regular fa-rectangle-xmark fa-lg"></i>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <img th:src="|/gall/images/thumb/${data.thumbFileName}|" alt="">
+                        </li>
+                        <li>
+                            <div class="img-tit">
+                                제목 : <span id="gallText" th:text="${data.title}"></span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="page-area">
+            <input type="hidden" id="nowPage" name="nowPage" th:value="${galleryData.nowPage}">
+            <nav aria-label="Page navigation example">
+                <ul id="pageNumbers" class="pagination justify-content-center" th:utext="${galleryData.pageHTML}">
+
+                </ul>
+            </nav>
+        </div>
+    </main>
+
+    <!-- Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel"><span id="modalTitle">갤러리 추가</span></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="addFrm">
+                        <ul>
+                            <li>
+                                <label for="gallTitle">제목</label>
+                                <input type="text" class="form-control" id="gallTitle" name="title">
+                            </li>
+                            <li>
+                                <label for="file">이미지 파일</label>
+                                <input type="file" class="form-control" id="file" name="file">
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+                    <button type="button" class="btn btn-primary" onclick="addGallery();">등록</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let saveType = '';
+
+        function showModal(type) {
+            saveType = type;
+            drawModal();
+        }
+
+        function drawModal() {
+            const modal = $('#registerModal');
+
+            modal.on('show.bs.modal', function (event) {
+                $('#modalTitle').text('갤러리 추가');
+            });
+
+            // 모달 이벤트 처리
+            modal.on('hide.bs.modal', function (event) {
+               $('#file').val(''); // 선택했던 파일 취소
+            });
+
+            modal.modal('show');
+        }
+
+        function updateModal(title) {
+            const modal = $('#registerModal');
+
+            modal.on('show.bs.modal', function (event) {
+                $('#modalTitle').text('갤러리 수정');
+            });
+
+            // 업데이트일 경우 제목 탐색 후 input 창에 입력
+            modal.on('shown.bs.modal', function (event) {
+                $('#gallTitle').val(title); // 선택했던 파일 취소
+            });
+
+            // 모달 이벤트 처리
+            modal.on('hide.bs.modal', function (event) {
+                $('#gallTitle').val(''); // 제목 삭제
+                $('#file').val(''); // 선택한 파일 취소
+            });
+
+            modal.modal('show');
+        }
+
+        function validated() {
+            const title = $('#gallTitle');
+            const fileObj = $('#file');
+
+            if($.trim(title.val()).length === 0) {
+                alert('제목을 입력하십시오.');
+                title.focus();
+                return false;
+            }
+
+            if(saveType === 'add' && $.trim(fileObj.val()).length === 0) {
+                alert('업로드 할 이미지를 선택하십시오.');
+                return false;
+            }
+
+            // 파일 확장자가 이미지 관련된 것만 업로드 가능
+            if($.trim(fileObj.val()).length > 0) {
+                // 확장자 체크
+                const fileName = fileObj.val();
+                const fileArray = fileName.split('.');
+                const ext = fileArray.pop(); // 배열의 마지막 요소를 반환하고 배열에서 삭제
+                const images = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'ico', 'JPG'];
+
+                // 비교 대상이 배열의 요소와 동일한 것이 있는지 검사
+                // $.inArray(대상, 검색배열) 없으면 -1
+                if($.inArray(ext, images) === -1) {
+                    alert('이미지 파일만 선택 가능합니다.');
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        function addGallery() {
+
+            if(validated()) {
+                const formObj = $('#addFrm')[0];
+                // 클래스화
+                const formData = new FormData(formObj);
+                let resultMsg = '생성';
+
+                if(saveType === 'update') {
+                    resultMsg = '수정';
+                    const imgChk = $('input[name="img_chk"]:checked');
+                    formData.append("seq", imgChk.val());
+                }
+
+                $.ajax(
+                    {
+                        url: '/gall/add',
+                        type: saveType === 'add' ? 'POST' : 'PUT',
+                        dataType: 'json',
+                        data: formData,
+                        contentType: false, // 기본 타입 미사용(xxx-formed...어쩌고 가 기본타입(GET, POST, DELETE))
+                        processData: false, // queryString 금지
+                        enctype: 'multipart/form-data' // form 데이터 전송하는 데 file도 함께 전송
+                    }
+                ).done(function (response) {
+                    if (response.resultCode === 200) {
+                        alert('갤러리' + resultMsg + '이 성공하였습니다.');
+                        location.href = '/gall/list';
+                    } else {
+                        alert('갤러리' + resultMsg + '이 실패하였습니다.');
+                        return false;
+                    }
+                })
+            }
+
+        }
+
+        function updateGallery(type) {
+            saveType = type;
+            // input의 name이 img_chk인 것들 중 체크 상태인 것
+            const imgChks = $('input[name="img_chk"]:checked');
+
+            // 수정할 이미지를 선택하지 않았을 경우
+            if(imgChks.length === 0) {
+                alert('수정할 이미지를 선택하십시오.');
+                return false;
+            }
+
+            if(imgChks.length !== 1) {
+                alert('수정할 이미지를 하나만 선택하십시오.');
+                return false;
+            }
+
+            // find = 태그 내에 속해져 있는 것을 탐색하는 기능 제공
+            // gallText = 제목 span 태그의 id
+            const title = imgChks.parent().parent().parent().parent().find('#gallText').text();
+            // console.log(imgChks.parent().parent().parent());
+            // console.log(title);
+            updateModal(title);
+        }
+
+        function deleteGallery(type) {
+            saveType = type;
+            // input의 name이 img_chk인 것들 중 체크 상태인 것
+            const imgChks = $('input[name="img_chk"]:checked');
+
+            // 삭제할 이미지를 선택하지 않았을 경우
+            if(imgChks.length === 0) {
+                alert("삭제할 이미지를 선택하십시오.");
+                return false;
+            }
+
+            // 이미지 삭제 결정
+            if(!confirm("선택한 이미지를 정말 삭제하시겠습니까?")) {
+                return false;
+            }
+
+            // 선택된 이미지의 seq 값 획득
+            const seq = imgChks.val();
+
+            $.ajax({
+                // RESTful 경로 사용
+                url: '/gall/delete/' + seq,
+                type: 'DELETE',
+                success: (response) => {
+                    if (response.resultCode === 200) {
+                        alert('이미지가 성공적으로 삭제되었습니다');
+                        location.reload(); // 페이지 새로고침
+                    } else {
+                        alert('이미지 삭제에 실패하였습니다.');
+                    }
+                },
+                error: () => {
+                    alert('서버 오류로 인해 작업을 진행할 수 없습니다.');
+                }
+            });
+        }
+
+        function movePage(nowPage) {
+            location.href = '/gall/list?nowPage=' + nowPage;
+        }
+    </script>
+</div>
+
+</html>
